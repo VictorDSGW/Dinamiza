@@ -1,28 +1,41 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "id": "d4f7",
+      "name": "DSG",
+      "time": 0,
+      "budget": "21",
+      "category": {
+        "id": "6",
+        "name": "Portifólio"
+      },
+      "cost": 0,
+      "servises": []
+    }
+  ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Infra"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Desenvolvimento"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Design"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Planejamento"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Freelance"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Portifólio"
     }
   ]
