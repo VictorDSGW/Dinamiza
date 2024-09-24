@@ -11,6 +11,49 @@
       },
       "cost": 0,
       "servises": []
+    },
+    {
+      "id": "5cdb",
+      "name": "DSG",
+      "time": 0,
+      "budget": "21",
+      "category": {
+        "id": "6",
+        "name": "Portifólio"
+      },
+      "cost": 0,
+      "servises": []
+    },
+    {
+      "id": "080e",
+      "name": "DSG",
+      "time": 0,
+      "budget": "21",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "servises": []
+    },
+    {
+      "id": "6256",
+      "name": "DSG",
+      "time": 0,
+      "cost": 0,
+      "servises": []
+    },
+    {
+      "id": "e982",
+      "name": "DSG",
+      "time": 0,
+      "budget": "21",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "servises": []
     }
   ],
   "categories": [

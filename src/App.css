@@ -4,4 +4,6 @@
   --text-color: #333;
   --primary-color: #ffbb33;
   --secondary-color: #6c757d;
+  --msg-success: #155724;
+  --msg-error: #721c24;
 }
