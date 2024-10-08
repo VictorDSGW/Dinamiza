@@ -19,7 +19,7 @@ function Projects() {
     fetch('http://localhost:5000/projects', {
       method: 'GET',
       headers: {
-        'Contant-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
     })
       .then((resp) => resp.json())
@@ -33,7 +33,7 @@ function Projects() {
     <div className={styles.project_container}>
       <div className={styles.title_container}>
         <h1>Projects</h1>
-        <LinkButton to='newproject' text='Criar Projeto' />
+        <LinkButton to='../newproject' text='Criar Projeto' />
       </div>
       {message && <Message type="success" msg={message} />}
       <Container customClass="start">
@@ -48,6 +48,7 @@ function Projects() {
              key={project.id}
             />
           ))}
+        {projects.length === 0 && <p>Nenhum projeto na base de dados.</p>}
       </Container>
     </div>
   )

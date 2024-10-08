@@ -7,7 +7,7 @@ function ProjectCard({id, name, time, budget, category, handleRemove}) {
     <div className={styles.project_card}>
       <h4>{name}</h4>
       <p>
-        <span>Tempo:</span> {time}
+        <span>Tempo:</span> {time}H
       </p>
       <p>
         <span>Orçamento:</span> R${budget}

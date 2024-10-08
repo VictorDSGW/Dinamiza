@@ -12,7 +12,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
     fetch("http://localhost:5000/categories", {
       method: "GET",
       headers: {
-        'content-type': 'application/json'
+        'Content-Type': 'application/json'
       }
     })
       .then((resp) => resp.json())
@@ -24,12 +24,14 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
 
   const submit = (e) => {
     e.preventDefault()
-    // console.log(project)
+    console.log(project)
     handleSubmit(project)
   }
 
   function handleChange(e) {
-    setProject( { ...project, [e.target.name]: e.target.value })
+    const value = e.target.name === 'time' || e.target.name === 'budget' ? Number(e.target.value) : e.target.value;
+
+    setProject( { ...project, [e.target.name]: value });
   }
 
   function handleCategory(e) {
@@ -52,7 +54,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
         value={project.name ? project.name : ''}
       />
       <Input
-       type="number"
+       type="type"
        text="Tempo do Projeto"
        name="time"
        placeholder="Insira o tempo estimado do projeto (em horas)" 

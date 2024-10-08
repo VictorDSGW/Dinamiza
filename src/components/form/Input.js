@@ -6,7 +6,7 @@ function Input({ type, text, name, placeholder, handleOnChange, value }) {
       <label htmlFor={name}>{text}:</label>
       <input
       required
-       type={text}
+       type={type}
        name={name}
        id={name}
        placeholder={placeholder}

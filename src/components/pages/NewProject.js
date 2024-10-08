@@ -8,14 +8,15 @@ function NewProject() {
   function createPost(project) {
 
     // initialize time, cost and services
-    project.time = 0; // !
     project.cost = 0;
-    project.servises = [];
+    project.services = [];
+
+    console.log(JSON.stringify(project));
 
     fetch("http://localhost:5000/projects", {
       method: "POST",
       headers: {
-        'content-type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(project),
     })
