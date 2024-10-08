@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { NavBar, Container, Home, About, NewProject, Projects, Contact, Footer }  from './components/Components'
+import { NavBar, Container, Home, About, NewProject, Projects, Project, Contact, Footer }  from './components/Components'
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
             <Route path='/about' element= {<About />} />
             <Route path='/newproject' element={<NewProject />} />
             <Route path='/projects' element={<Projects />} />
+            <Route path='/project/:id' element={<Project />} />
             <Route path='/contact' element={<Contact />} />
           </Routes>
         </Container>

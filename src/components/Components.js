@@ -8,4 +8,5 @@ export { default as Home } from './pages/Home';
 export { default as About } from './pages/About';
 export { default as NewProject } from './pages/NewProject';
 export { default as Projects } from './pages/Projects'
+export { default as Project } from './pages/Project'
 export { default as Contact } from './pages/Contact';

@@ -7,7 +7,7 @@ function ProjectCard({id, name, time, budget, category, handleRemove}) {
     e.preventDefault()
     handleRemove(id)
   }
-  
+
   return (
     <div className={styles.project_card}>
       <h4>{name}</h4>
@@ -21,7 +21,7 @@ function ProjectCard({id, name, time, budget, category, handleRemove}) {
         <span className={`${styles[category?.toLowerCase() || ""]}`}></span> {category}
       </p>
       <div className={styles.project_card_actions}>
-        <Link to="/">
+        <Link to={`/project/${id}`}>
           <BsPencil /> Editar
         </Link>
         <button onClick={remove}>
