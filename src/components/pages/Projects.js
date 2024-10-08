@@ -2,12 +2,14 @@ import { useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Message from '../layout/Message'
 import Container from '../layout/Container'
+import Loading from '../layout/Loading';
 import LinkButton from '../layout/LinkButton'
 import styles from './Projects.module.css'
 import ProjectCard from '../project/ProjectCard'
 
 function Projects() {
   const [projects, setProjects] = useState([]);
+  const [removeLoading, setRemoveLoading] = useState(false);
 
   const location = useLocation();
   let message = '';
@@ -16,17 +18,21 @@ function Projects() {
   }
 
   useEffect(() => {
-    fetch('http://localhost:5000/projects', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        setProjects(data)
+    setTimeout(() => {
+      fetch('http://localhost:5000/projects', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
       })
-      .catch((err) => console.log(err))
+        .then((resp) => resp.json())
+        .then((data) => {
+          console.log(data)
+          setProjects(data)
+          setRemoveLoading(true)
+        })
+        .catch((err) => console.log(err))
+    }, Math.random() * (3000 - 300) + 300);
   }, [])
 
   return (
@@ -48,7 +54,8 @@ function Projects() {
              key={project.id}
             />
           ))}
-        {projects.length === 0 && <p>Nenhum projeto na base de dados.</p>}
+        {!removeLoading && <Loading />}
+        {removeLoading && projects.length === 0 && <p>Nenhum projeto na base de dados.</p>}
       </Container>
     </div>
   )
