@@ -2,9 +2,9 @@
   "projects": [
     {
       "id": "133a",
-      "name": "DSG",
-      "time": 12,
-      "budget": 21,
+      "name": "DSG Atualizado",
+      "time": 120,
+      "budget": 21000,
       "category": {
         "id": "6",
         "name": "Portifólio"
