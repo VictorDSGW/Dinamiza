@@ -12,6 +12,19 @@
       "timePast": 0,
       "cost": 0,
       "services": []
+    },
+    {
+      "id": "c83a",
+      "name": "DSG",
+      "time": 12,
+      "budget": 21,
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "timePast": 0,
+      "cost": 0,
+      "services": []
     }
   ],
   "categories": [
