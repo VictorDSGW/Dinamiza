@@ -1,38 +1,15 @@
 {
   "projects": [
     {
-      "id": "180b",
+      "id": "133a",
       "name": "DSG",
       "time": 12,
       "budget": 21,
       "category": {
-        "id": "4",
-        "name": "Planejamento"
+        "id": "6",
+        "name": "Portifólio"
       },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "02b2",
-      "name": "Victor DSG",
-      "time": 12,
-      "budget": 21,
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "0ae8",
-      "name": "Victor.DSG",
-      "time": 12,
-      "budget": 21,
-      "category": {
-        "id": "1",
-        "name": "Infra"
-      },
+      "timePast": 0,
       "cost": 0,
       "services": []
     }
