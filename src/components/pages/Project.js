@@ -1,10 +1,12 @@
 import styles from "./Project.module.css";
+import { v4 as uuidv4 } from "uuid";
 import {useParams} from 'react-router-dom';
 import { useState, useEffect } from "react";
 import Loading from '../layout/Loading';
 import Container from '../layout/Container';
 import Message from '../layout/Message';
 import ProjectForm from "../project/ProjectForm";
+import ServiceForm from "../service/ServiceForm";
 
 function Project() {
   const {id} = useParams()
@@ -26,7 +28,10 @@ function Project() {
         // console.log(resp)
         return resp.json()
       })
-      .then((data) => {setProject(data)})
+      .then((data) => {
+        console.log(data)
+        setProject(data)
+      })
       .catch((err) => console.log(err))
     }, 200);
   }, [id])
@@ -55,6 +60,57 @@ function Project() {
     })
       .then(resp => resp.json())
       .then((data) => {
+        setProject(data)
+        setShowProjectForm(false)
+        setMessage("Projeto Atualizado!")
+        setType("success")
+      })
+      .catch(err => console.log(err))
+  }
+
+  function createService(project) {
+    setMessage('')
+
+    //last service
+    const lastService = project.services[project.services.length - 1]
+
+    lastService.id = uuidv4()
+
+    const lastServiceTimePast = lastService.timePast
+    const lastServiceCost = lastService.cost
+
+    const newTimePast = parseFloat(project.timePast) + parseFloat(lastServiceTimePast)
+    const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
+
+    // maximum value validation
+    if(newTimePast > parseFloat(project.time)) {
+      project.services.pop()
+      setMessage('Orçamento ultrapassado, verifique o valor do serviço')
+      setType('error')
+      return false
+    }
+    if(newCost > parseFloat(project.budget)) {
+      project.services.pop()
+      setMessage('Orçamento ultrapassado, verifique o valor do serviço')
+      setType('error')
+      return false
+    }
+
+    //add service cost to project total cost
+    project.timePast = newTimePast
+    project.cost = newCost
+
+    // update project
+    fetch(`http://localhost:5000/projects/${project.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(project),
+    })
+      .then(resp => resp.json())
+      .then((data) => {
+        //exibir os serviços
         setProject(data)
         setShowProjectForm(false)
         setMessage("Projeto Atualizado!")
@@ -92,7 +148,8 @@ function Project() {
                       <span>Total de Tempo:</span> {project.time}
                     </p>
                     <p>
-                      <span>Tempo Restante:</span> {project.time - project.timePast}
+                      <span>Tempo Utilizado:</span> {project.timePast}
+                      <span> | Tempo restante:</span> {project.time - project.timePast}
                     </p>
                   </div>
                   <div className={styles.costSide}>
@@ -121,7 +178,11 @@ function Project() {
               {!showServiceForm ? 'Adicionar serviço' : 'Fechar'}
             </button>
             <div className={styles.project_info}>
-              {showServiceForm && <div>Form</div>}
+              {showServiceForm && <ServiceForm
+                handleSubmit={createService}
+                btnText="Adicionar Serviço"
+                projectData={project}
+              />}
             </div>
           </div>
           <h2>Serviços</h2>
