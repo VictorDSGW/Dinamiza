@@ -7,10 +7,13 @@ import Container from '../layout/Container';
 import Message from '../layout/Message';
 import ProjectForm from "../project/ProjectForm";
 import ServiceForm from "../service/ServiceForm";
+import ServiceCard from "../service/TempNameServiceCard";
 
 function Project() {
   const {id} = useParams()
-  const [project, setProject] = useState({})
+
+  const [project, setProject] = useState([])
+  const [services, setServices] = useState([])
   const [showProjectForm, setShowProjectForm] = useState(false)
   const [showServiceForm, setShowServiceForm] = useState(false)
   const [message, setMessage] = useState()
@@ -29,8 +32,9 @@ function Project() {
         return resp.json()
       })
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         setProject(data)
+        setServices(data.services)
       })
       .catch((err) => console.log(err))
     }, 200);
@@ -113,11 +117,14 @@ function Project() {
         //exibir os serviços
         setProject(data)
         setShowProjectForm(false)
+        setShowServiceForm(false)
         setMessage("Projeto Atualizado!")
         setType("success")
       })
       .catch(err => console.log(err))
   }
+
+  function removeService() {}
 
   function toggleProjectForm() {
     setShowProjectForm(!showProjectForm)
@@ -149,7 +156,9 @@ function Project() {
                     </p>
                     <p>
                       <span>Tempo Utilizado:</span> {project.timePast}
-                      <span> | Tempo restante:</span> {project.time - project.timePast}
+                    </p>
+                    <p>
+                      <span>Tempo restante:</span> {project.time - project.timePast}
                     </p>
                   </div>
                   <div className={styles.costSide}>
@@ -158,6 +167,9 @@ function Project() {
                     </p>
                     <p>
                       <span>Total Utilizado:</span> ${project.cost}
+                    </p>
+                    <p>
+                      <span>Total restante:</span> ${project.budget - project.cost}
                     </p>
                   </div>
                 </div>
@@ -187,7 +199,21 @@ function Project() {
           </div>
           <h2>Serviços</h2>
           <Container customClass="start">
-            <p>Serviços</p>
+            {services.length > 0 && 
+              services.map((service) => (
+                <ServiceCard
+                  id={service.id}
+                  name={service.name}
+                  timePast={service.timePast}
+                  cost={service.cost}
+                  description={service.description}
+                  key={service.key}
+                  handleRemove={removeService}
+                />
+              ))
+
+            }
+            {services.length === 0 && <p>Não há serviços cadastrados.</p>}
           </Container>
         </Container>
       </div>

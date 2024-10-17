@@ -67,6 +67,41 @@
           "id": "68bf5cd7-6727-4b33-987b-70c4e924f3d8"
         }
       ]
+    },
+    {
+      "id": "b020",
+      "name": "DSG",
+      "time": 120,
+      "budget": 21000,
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "timePast": 70,
+      "cost": 10999,
+      "services": [
+        {
+          "name": "Contratar Dev",
+          "timePast": "10",
+          "cost": "1000",
+          "description": "Teste",
+          "id": "68ba9590-1a9d-49e9-8e4f-1ec5ba82b040"
+        },
+        {
+          "name": "Cybersegurança",
+          "timePast": "35",
+          "cost": "2500",
+          "description": "Revisão",
+          "id": "3026c1c2-0750-4352-903c-7b2bcf283b9d"
+        },
+        {
+          "name": "DSG Atualizado",
+          "timePast": "25",
+          "cost": "7499",
+          "description": "wasd",
+          "id": "ca6be87f-3709-43f8-9010-63c6ff05f450"
+        }
+      ]
     }
   ],
   "categories": [
