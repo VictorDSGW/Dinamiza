@@ -1,19 +1,6 @@
 {
   "projects": [
     {
-      "id": "133a",
-      "name": "DSG Atualizado",
-      "time": 120,
-      "budget": 21000,
-      "category": {
-        "id": "6",
-        "name": "Portifólio"
-      },
-      "timePast": 0,
-      "cost": 0,
-      "services": []
-    },
-    {
       "id": "c83a",
       "name": "DSG",
       "time": 12,
@@ -77,8 +64,8 @@
         "id": "3",
         "name": "Design"
       },
-      "timePast": 70,
-      "cost": 10999,
+      "timePast": 45,
+      "cost": 3500,
       "services": [
         {
           "name": "Contratar Dev",
@@ -93,13 +80,6 @@
           "cost": "2500",
           "description": "Revisão",
           "id": "3026c1c2-0750-4352-903c-7b2bcf283b9d"
-        },
-        {
-          "name": "DSG Atualizado",
-          "timePast": "25",
-          "cost": "7499",
-          "description": "wasd",
-          "id": "ca6be87f-3709-43f8-9010-63c6ff05f450"
         }
       ]
     }
